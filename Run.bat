@@ -1,0 +1,1 @@
+newman run "Restful Booker.postman_collection.json" -e Testing.postman_environment.json -r htmlextra
