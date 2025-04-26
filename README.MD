@@ -16,18 +16,9 @@
 Restful Booker is a simple yet powerful booking API that provides functionality for creating, retrieving, updating, and deleting booking records. It is commonly used for testing automation frameworks and API learning purposes.
 
 
-
-## Examples 
+## Local Testing Execution Example 
 
 [Local Testing Execution Example] (Example.gif)
-
-
-- **Create Booking**: Add a new booking with user details and booking dates.
-- **Retrieve Booking(s)**: Get all booking IDs or detailed booking information by ID.
-- **Update Booking**: Fully update an existing booking record.
-- **Partial Update**: Partially update fields of a booking.
-- **Delete Booking**: Delete a booking by ID.
-- **Authentication**: Secure update and delete operations via token-based authentication.
 
 ## Features
 
