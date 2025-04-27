@@ -18,7 +18,7 @@ Restful Booker is a simple yet powerful booking API that provides functionality 
 
 ## Local Testing Execution Example 
 
-[Local Testing Execution Example] (Example.gif)
+[Local Testing Execution Example](Example.gif)
 
 ## Features
 
