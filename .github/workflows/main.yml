@@ -35,9 +35,9 @@ jobs:
             --reporters cli,htmlextra \
             --reporter-htmlextra-export newman/report.html
 
-      # 5. Upload the HTML report as an artifact
-      #- name: Upload HTML report
-       # uses: actions/upload-artifact@v3
-        #with:
-         # name: API-Test-Report
-          #path: newman/report.html
+       5. Upload the HTML report as an artifact
+      - name: Upload HTML report
+        uses: actions/upload-artifact@v3
+        with:
+          name: API-Test-Report
+          path: newman/report.html
