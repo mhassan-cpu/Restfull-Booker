@@ -11,19 +11,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # 1. Checkout your repo code
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      # 2. Install Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
 
+      # 3. Install Newman and HTML extra reporter
       - name: Install Newman and reporter
         run: |
           npm install -g newman
           npm install -g newman-reporter-htmlextra
 
+      # 4. Run the Postman Collection
       - name: Run API Tests with Newman
         run: |
           newman run "Restful Booker.postman_collection.json" \
@@ -31,41 +35,10 @@ jobs:
             --reporters cli,htmlextra \
             --reporter-htmlextra-export newman/report.html
 
-     name: Postman API Tests
-
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
-
-jobs:
-  run-api-tests:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-
-      - name: Install Newman and reporter
-        run: |
-          npm install -g newman
-          npm install -g newman-reporter-htmlextra
-
-      - name: Run API Tests with Newman
-        run: |
-          newman run "Restful Booker.postman_collection.json" \
-            --environment "Testing.postman_environment.json" \
-            --reporters cli,htmlextra \
-            --reporter-htmlextra-export newman/report.html
-
-      - name: Print HTML report as base64
+      # 5. Upload the HTML report as an artifact
+     -  name: Output report as base64 (manual download workaround)
         run: |
           echo "::group::Base64 Report"
           base64 newman/report.html
           echo "::endgroup::"
+
